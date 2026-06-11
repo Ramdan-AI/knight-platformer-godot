@@ -1,0 +1,203 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://tilemap/tile/solidtile.tres" type="TileSet" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tilemap/tile/toway.tres" type="TileSet" id=3]
+[ext_resource path="res://tilemap/Arena.gd" type="Script" id=4]
+[ext_resource path="res://tilemap/background/background.png" type="Texture" id=5]
+[ext_resource path="res://tilemap/coin/coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tilemap/CoinLabel.gd" type="Script" id=8]
+[ext_resource path="res://tilemap/Finish/FinishArea.tscn" type="PackedScene" id=9]
+[ext_resource path="res://tilemap/Finish.gd" type="Script" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 38, 1.375 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 760, 21.5 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.964706, 0.0431373, 0.0431373, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0392157, 0.0352941, 0.0352941, 1 )
+
+[node name="level1" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="solidtile" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_use_kinematic = true
+collision_layer = 2
+collision_mask = 5
+format = 1
+tile_data = PoolIntArray( 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 2, 0, 8, 2, 0, 9, 2, 0, 10, 2, 0, 11, 2, 0, 12, 2, 0, 13, 2, 0, 14, 2, 0, 15, 2, 0, 16, 2, 0, 17, 2, 0, 18, 2, 0, 19, 2, 0, 20, 2, 0, 21, 2, 0, 22, 2, 0, 23, 2, 0, 24, 2, 0, 25, 2, 0, 26, 2, 0, 27, 2, 0, 28, 2, 0, 29, 2, 0, 30, 2, 0, 31, 2, 0, 32, 2, 0, 33, 2, 0, 34, 2, 0, 35, 2, 0, 36, 2, 0, 37, 2, 0, 38, 2, 0, 39, 2, 0, 40, 2, 0, 41, 2, 0, 42, 2, 0, 43, 2, 0, 44, 2, 0, 45, 2, 0, 46, 2, 0, 47, 2, 0, 48, 2, 0, 49, 2, 0, 50, 2, 0, 51, 2, 0, 52, 2, 0, 53, 2, 0, 54, 2, 0, 55, 2, 0, 56, 2, 0, 57, 2, 0, 58, 2, 0, 59, 2, 0, 60, 2, 0, 61, 2, 0, 62, 2, 0, 63, 2, 0, 64, 2, 0, 65, 2, 0, 66, 2, 0, 67, 2, 0, 68, 2, 0, 69, 2, 0, 70, 2, 0, 71, 2, 0, 72, 2, 0, 73, 2, 0, 74, 2, 0, 75, 2, 0, 76, 2, 0, 77, 2, 0, 78, 2, 0, 79, 2, 0, 80, 2, 0, 81, 2, 0, 82, 2, 0, 83, 2, 0, 84, 2, 0, 85, 2, 0, 86, 2, 0, 87, 2, 0, 88, 2, 0, 89, 2, 0, 90, 2, 0, 91, 2, 0, 92, 2, 0, 93, 2, 0, 94, 2, 0, 65536, 2, 0, 65630, 2, 0, 131072, 2, 0, 131166, 2, 0, 196608, 2, 0, 196702, 2, 0, 262144, 2, 0, 262238, 2, 0, 327680, 2, 0, 327693, 0, 0, 327694, 4, 0, 327697, 4, 0, 327700, 4, 0, 327703, 0, 0, 327774, 2, 0, 393216, 2, 0, 393228, 0, 0, 393229, 3, 0, 393239, 3, 0, 393240, 0, 0, 393310, 2, 0, 458752, 2, 0, 458763, 0, 0, 458764, 3, 0, 458765, 3, 0, 458775, 3, 0, 458776, 3, 0, 458777, 0, 0, 458846, 2, 0, 524288, 2, 0, 524298, 0, 0, 524299, 3, 0, 524300, 3, 0, 524301, 3, 0, 524311, 3, 0, 524312, 3, 0, 524313, 3, 0, 524314, 0, 0, 524345, 0, 0, 524348, 0, 0, 524382, 2, 0, 589824, 2, 0, 589833, 0, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589837, 3, 0, 589847, 3, 0, 589848, 3, 0, 589849, 3, 0, 589850, 3, 0, 589851, 0, 0, 589858, 3, 0, 589871, 3, 0, 589880, 0, 0, 589881, 3, 0, 589884, 3, 0, 589885, 0, 0, 589918, 2, 0, 655360, 2, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 655389, 0, 0, 655390, 0, 0, 655391, 0, 0, 655392, 0, 0, 655393, 0, 0, 655394, 0, 0, 655395, 0, 0, 655396, 0, 0, 655397, 0, 0, 655398, 0, 0, 655399, 0, 0, 655400, 0, 0, 655401, 0, 0, 655402, 0, 0, 655403, 0, 0, 655404, 0, 0, 655405, 0, 0, 655406, 0, 0, 655407, 0, 0, 655408, 0, 0, 655409, 0, 0, 655410, 0, 0, 655411, 0, 0, 655412, 0, 0, 655413, 0, 0, 655414, 0, 0, 655415, 0, 0, 655416, 0, 0, 655417, 3, 0, 655420, 3, 0, 655421, 0, 0, 655422, 0, 0, 655423, 0, 0, 655424, 0, 0, 655425, 0, 0, 655426, 0, 0, 655427, 0, 0, 655428, 0, 0, 655429, 0, 0, 655430, 0, 0, 655431, 0, 0, 655432, 0, 0, 655433, 3, 0, 655434, 3, 0, 655435, 3, 0, 655436, 3, 0, 655437, 3, 0, 655438, 0, 0, 655439, 0, 0, 655440, 0, 0, 655441, 3, 0, 655442, 3, 0, 655443, 3, 0, 655444, 3, 0, 655445, 0, 0, 655446, 0, 0, 655447, 0, 0, 655448, 0, 0, 655449, 0, 0, 655450, 0, 0, 655451, 0, 0, 655452, 0, 0, 655453, 0, 0, 655454, 0, 0, 720896, 3, 0, 720897, 3, 0, 720898, 3, 0, 720899, 3, 0, 720900, 3, 0, 720901, 3, 0, 720902, 3, 0, 720903, 3, 0, 720904, 3, 0, 720905, 3, 0, 720906, 3, 0, 720907, 3, 0, 720908, 3, 0, 720909, 3, 0, 720910, 3, 0, 720911, 3, 0, 720912, 3, 0, 720913, 3, 0, 720914, 3, 0, 720915, 3, 0, 720916, 3, 0, 720917, 3, 0, 720918, 3, 0, 720919, 3, 0, 720920, 3, 0, 720921, 3, 0, 720922, 3, 0, 720923, 3, 0, 720924, 3, 0, 720925, 3, 0, 720926, 3, 0, 720927, 3, 0, 720928, 3, 0, 720929, 3, 0, 720930, 3, 0, 720931, 3, 0, 720932, 3, 0, 720933, 3, 0, 720934, 3, 0, 720935, 3, 0, 720936, 3, 0, 720937, 3, 0, 720938, 3, 0, 720939, 3, 0, 720940, 3, 0, 720941, 3, 0, 720942, 3, 0, 720943, 3, 0, 720944, 3, 0, 720945, 3, 0, 720946, 3, 0, 720947, 3, 0, 720948, 3, 0, 720949, 3, 0, 720950, 3, 0, 720951, 3, 0, 720952, 3, 0, 720953, 3, 0, 720956, 3, 0, 720957, 3, 0, 720958, 3, 0, 720959, 3, 0, 720960, 3, 0, 720961, 3, 0, 720962, 3, 0, 720963, 3, 0, 720964, 3, 0, 720965, 3, 0, 720966, 3, 0, 720967, 3, 0, 720968, 3, 0, 720969, 3, 0, 720970, 3, 0, 720971, 3, 0, 720972, 3, 0, 720973, 3, 0, 720974, 3, 0, 720975, 3, 0, 720976, 3, 0, 720977, 3, 0, 720978, 3, 0, 720979, 3, 0, 720980, 3, 0, 720981, 3, 0, 720982, 3, 0, 720983, 3, 0, 720984, 3, 0, 720985, 3, 0, 720986, 3, 0, 720987, 3, 0, 720988, 3, 0, 720989, 3, 0, 720990, 3, 0, 786432, 3, 0, 786433, 3, 0, 786434, 3, 0, 786435, 3, 0, 786436, 3, 0, 786437, 3, 0, 786438, 3, 0, 786439, 3, 0, 786440, 3, 0, 786441, 3, 0, 786442, 3, 0, 786443, 3, 0, 786444, 3, 0, 786445, 3, 0, 786446, 3, 0, 786447, 3, 0, 786448, 3, 0, 786449, 3, 0, 786450, 3, 0, 786451, 3, 0, 786452, 3, 0, 786453, 3, 0, 786454, 3, 0, 786455, 3, 0, 786456, 3, 0, 786457, 3, 0, 786458, 3, 0, 786459, 3, 0, 786460, 3, 0, 786461, 3, 0, 786462, 3, 0, 786463, 3, 0, 786464, 3, 0, 786465, 3, 0, 786466, 3, 0, 786467, 3, 0, 786468, 3, 0, 786469, 3, 0, 786470, 3, 0, 786471, 3, 0, 786472, 3, 0, 786473, 3, 0, 786474, 3, 0, 786475, 3, 0, 786476, 3, 0, 786477, 3, 0, 786478, 3, 0, 786479, 3, 0, 786480, 3, 0, 786481, 3, 0, 786482, 3, 0, 786483, 3, 0, 786484, 3, 0, 786485, 3, 0, 786486, 3, 0, 786487, 3, 0, 786488, 3, 0, 786489, 3, 0, 786492, 3, 0, 786493, 3, 0, 786494, 3, 0, 786495, 3, 0, 786496, 3, 0, 786497, 3, 0, 786498, 3, 0, 786499, 3, 0, 786500, 3, 0, 786501, 3, 0, 786502, 3, 0, 786503, 3, 0, 786504, 3, 0, 786505, 3, 0, 786506, 3, 0, 786507, 3, 0, 786508, 3, 0, 786509, 3, 0, 786510, 3, 0, 786511, 3, 0, 786512, 3, 0, 786513, 3, 0, 786514, 3, 0, 786515, 3, 0, 786516, 3, 0, 786517, 3, 0, 786518, 3, 0, 786519, 3, 0, 786520, 3, 0, 786521, 3, 0, 786522, 3, 0, 786523, 3, 0, 786524, 3, 0, 786525, 3, 0, 786526, 3, 0 )
+
+[node name="toway" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 524322, 0, 0, 524323, 0, 0, 524324, 0, 0, 524325, 0, 0, 524332, 0, 0, 524333, 0, 0, 524334, 0, 0, 524335, 0, 0, 524361, 0, 0, 524362, 0, 0, 524363, 0, 0, 524364, 0, 0, 524365, 0, 0, 524369, 0, 0, 524370, 0, 0, 524371, 0, 0, 524372, 0, 0, 524373, 0, 0, 589897, 3, 0, 589898, 3, 0, 589899, 3, 0, 589900, 3, 0, 589901, 3, 0, 589905, 3, 0, 589906, 3, 0, 589907, 3, 0, 589908, 3, 0, 589909, 3, 0, 655445, 3, 0 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="toway"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="toway/StaticBody2D"]
+position = Vector2( 576, 132.25 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="toway/StaticBody2D"]
+position = Vector2( 736, 133 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="toway/StaticBody2D"]
+position = Vector2( 1336, 133 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="toway/StaticBody2D"]
+position = Vector2( 1208, 129.625 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="FinishArea" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1488, 144 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 67, 134 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
+current = true
+zoom = Vector2( 0.5, 0.5 )
+limit_left = 0
+limit_top = 0
+limit_right = 1520
+limit_bottom = 200
+drag_margin_h_enabled = true
+editor_draw_limits = true
+
+[node name="flor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flor"]
+position = Vector2( 762, 231.5 )
+shape = SubResource( 2 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 2, 3 )
+scale = Vector2( 101.267, 1.87387 )
+texture = ExtResource( 5 )
+centered = false
+hframes = 4
+
+[node name="coingrup" type="Node2D" parent="."]
+
+[node name="coin" parent="coingrup" instance=ExtResource( 6 )]
+position = Vector2( 247, 71 )
+
+[node name="coin2" parent="coingrup" instance=ExtResource( 6 )]
+position = Vector2( 578, 118 )
+
+[node name="coin5" parent="coingrup" instance=ExtResource( 6 )]
+position = Vector2( 736, 121 )
+
+[node name="coin3" parent="coingrup" instance=ExtResource( 6 )]
+position = Vector2( 343, 69 )
+
+[node name="coin4" parent="coingrup" instance=ExtResource( 6 )]
+position = Vector2( 293, 71 )
+
+[node name="enemygrup" type="Node2D" parent="."]
+
+[node name="KinematicBody2D" parent="enemygrup" instance=ExtResource( 7 )]
+position = Vector2( 510, 150 )
+
+[node name="KinematicBody2D2" parent="enemygrup" instance=ExtResource( 7 )]
+position = Vector2( 656, 149 )
+
+[node name="KinematicBody2D3" parent="enemygrup" instance=ExtResource( 7 )]
+position = Vector2( 844, 149 )
+
+[node name="KinematicBody2D4" parent="enemygrup" instance=ExtResource( 7 )]
+position = Vector2( 1065, 150 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HpBar" type="ProgressBar" parent="CanvasLayer"]
+margin_left = 34.0
+margin_top = 25.0
+margin_right = 105.0
+margin_bottom = 39.0
+custom_styles/fg = SubResource( 3 )
+max_value = 5.0
+value = 5.0
+
+[node name="DeathMenu" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DeathMenu"]
+margin_left = 286.0
+margin_top = 90.0
+margin_right = 326.0
+margin_bottom = 130.0
+
+[node name="Label" type="Label" parent="CanvasLayer/DeathMenu/VBoxContainer"]
+margin_right = 76.0
+margin_bottom = 14.0
+text = "GAME OVER"
+
+[node name="Button" type="Button" parent="CanvasLayer/DeathMenu/VBoxContainer"]
+margin_top = 18.0
+margin_right = 76.0
+margin_bottom = 38.0
+text = "Restart"
+
+[node name="CoinLabel" type="Label" parent="CanvasLayer"]
+margin_left = 540.0
+margin_top = 24.0
+margin_right = 588.0
+margin_bottom = 38.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Coin : 0"
+script = ExtResource( 8 )
+
+[node name="Finish" type="Control" parent="CanvasLayer"]
+visible = false
+margin_left = 286.0
+margin_top = 90.0
+margin_right = 363.0
+margin_bottom = 130.0
+script = ExtResource( 10 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Finish"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Finish/VBoxContainer"]
+margin_right = 80.0
+margin_bottom = 14.0
+text = "YOU WIN!"
+
+[node name="Button" type="Button" parent="CanvasLayer/Finish/VBoxContainer"]
+margin_top = 18.0
+margin_right = 80.0
+margin_bottom = 38.0
+text = "CONTINUE"
+
+[connection signal="body_entered" from="FinishArea" to="." method="_on_FinishArea_body_entered"]
+[connection signal="body_entered" from="flor" to="." method="_on_flor_body_entered"]
+[connection signal="pressed" from="CanvasLayer/DeathMenu/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Finish/VBoxContainer/Button" to="." method="_on_Button_pressed"]
