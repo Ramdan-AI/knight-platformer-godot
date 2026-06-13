@@ -2,6 +2,9 @@ extends Node2D
 
 onready var win_menu = $CanvasLayer/Finish
 
+func _ready():
+	$BGM.play()
+
 func _on_flor_body_entered(body):
 	if body.name == 'Player':
 		body.mati()

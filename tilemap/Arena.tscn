@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://tilemap/tile/solidtile.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://tilemap/CoinLabel.gd" type="Script" id=8]
 [ext_resource path="res://tilemap/Finish/FinishArea.tscn" type="PackedScene" id=9]
 [ext_resource path="res://tilemap/Finish.gd" type="Script" id=10]
+[ext_resource path="res://sound/time_for_adventure.mp3" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 38, 1.375 )
@@ -89,7 +90,6 @@ position = Vector2( 762, 231.5 )
 shape = SubResource( 2 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
@@ -196,6 +196,11 @@ margin_top = 18.0
 margin_right = 80.0
 margin_bottom = 38.0
 text = "CONTINUE"
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="FinishArea" to="." method="_on_FinishArea_body_entered"]
 [connection signal="body_entered" from="flor" to="." method="_on_flor_body_entered"]
